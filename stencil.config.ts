@@ -1,8 +1,9 @@
-import { Config } from '@stencil/core';
+import type { Config } from '@stencil/core';
 import tailwind, { tailwindHMR } from 'stencil-tailwind-plugin';
 
 export const config: Config = {
   namespace: 'ambulance-ufe',
+  globalScript: 'src/global/app.ts',
   outputTargets: [
     {
       type: 'dist',
