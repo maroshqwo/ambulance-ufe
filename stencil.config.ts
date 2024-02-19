@@ -1,5 +1,4 @@
 import type { Config } from '@stencil/core';
-import tailwind, { tailwindHMR } from 'stencil-tailwind-plugin';
 
 export const config: Config = {
   namespace: 'ambulance-ufe',
@@ -23,5 +22,4 @@ export const config: Config = {
   testing: {
     browserHeadless: 'new',
   },
-  plugins: [tailwind(), tailwindHMR()],
 };
