@@ -53,7 +53,6 @@ export class MkyAmbulanceWlList {
             </md-list-item>
           ))}
         </md-list>
-        <mky-ambulance-wl-list onentry-clicked={(ev: CustomEvent<string>) => navigate('./entry/' + ev.detail)}></mky-ambulance-wl-list>
       </Host>
     );
   }
