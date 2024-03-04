@@ -56,7 +56,7 @@ export class MkyAmbulanceWlApp {
     return (
       <Host>
         {element === 'editor' ? (
-          <mky-ambulance-wl-editor entry-id={entryId} oneditor-closed={() => navigate('./list')}></mky-ambulance-wl-editor>
+          <mky-ambulance-wl-editor ambulance-id={this.ambulanceId} api-base={this.apiBase} entry-id={entryId} oneditor-closed={() => navigate('./list')}></mky-ambulance-wl-editor>
         ) : (
           <mky-ambulance-wl-list
             ambulance-id={this.ambulanceId}

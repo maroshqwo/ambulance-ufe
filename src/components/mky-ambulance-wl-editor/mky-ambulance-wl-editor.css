@@ -1,12 +1,3 @@
-:host {
-  --_wl-editor_gap: var(--wl-gap, 0.5rem);
-
-  display: flex;
-  flex-direction: column;
-  gap: var(--_wl-editor_gap);
-  padding: var(--_wl-editor_gap);
-}
-
 .duration-slider {
   display: flex;
   flex-direction: row;
@@ -27,4 +18,25 @@
 
 md-divider {
   margin-bottom: var(--_wl-editor_gap);
+}
+
+:host {
+  --_wl-editor_gap: var(--wl-gap, 0.5rem);
+  width: 100%;
+  height: 100%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--_wl-editor_gap);
+  padding: var(--_wl-editor_gap);
+}
+
+.error {
+  margin: auto;
+  color: red;
+  font-size: 2rem;
+  font-weight: 900;
+  text-align: center;
 }

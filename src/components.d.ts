@@ -12,6 +12,8 @@ export namespace Components {
         "basePath": string;
     }
     interface MkyAmbulanceWlEditor {
+        "ambulanceId": string;
+        "apiBase": string;
         "entryId": string;
     }
     interface MkyAmbulanceWlList {
@@ -81,6 +83,8 @@ declare namespace LocalJSX {
         "basePath"?: string;
     }
     interface MkyAmbulanceWlEditor {
+        "ambulanceId"?: string;
+        "apiBase"?: string;
         "entryId"?: string;
         "onEditor-closed"?: (event: MkyAmbulanceWlEditorCustomEvent<string>) => void;
     }
