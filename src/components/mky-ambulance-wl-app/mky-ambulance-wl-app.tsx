@@ -14,6 +14,8 @@ export class MkyAmbulanceWlApp {
   @State() private relativePath = '';
 
   @Prop() basePath: string = '';
+  @Prop() ambulanceId: string;
+  @Prop() apiBase: string;
 
   componentWillLoad() {
     const baseUri = new URL(this.basePath, document.baseURI || '/').pathname;
@@ -56,7 +58,11 @@ export class MkyAmbulanceWlApp {
         {element === 'editor' ? (
           <mky-ambulance-wl-editor entry-id={entryId} oneditor-closed={() => navigate('./list')}></mky-ambulance-wl-editor>
         ) : (
-          <mky-ambulance-wl-list onentry-clicked={(ev: CustomEvent<string>) => navigate('./entry/' + ev.detail)}></mky-ambulance-wl-list>
+          <mky-ambulance-wl-list
+            ambulance-id={this.ambulanceId}
+            api-base={this.apiBase}
+            onentry-clicked={(ev: CustomEvent<string>) => navigate('./entry/' + ev.detail)}
+          ></mky-ambulance-wl-list>
         )}
       </Host>
     );
