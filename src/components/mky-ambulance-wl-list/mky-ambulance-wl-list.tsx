@@ -1,11 +1,11 @@
-import { Component, Host, h } from '@stencil/core';
-
+import { Component, Event, EventEmitter, Host, h } from '@stencil/core';
 @Component({
   tag: 'mky-ambulance-wl-list',
   styleUrl: 'mky-ambulance-wl-list.css',
   shadow: true,
 })
 export class MkyAmbulanceWlList {
+  @Event({ eventName: 'entry-clicked' }) entryClicked: EventEmitter<string>;
   waitingPatients: any[];
 
   private async getWaitingPatientsAsync() {
@@ -45,14 +45,15 @@ export class MkyAmbulanceWlList {
     return (
       <Host>
         <md-list>
-          {this.waitingPatients.map(patient => (
-            <md-list-item>
+          {this.waitingPatients.map((patient, index) => (
+            <md-list-item onClick={() => this.entryClicked.emit(index.toString())}>
               <div slot="headline">{patient.name}</div>
               <div slot="supporting-text">{'Predpokladaný vstup: ' + this.isoDateToLocale(patient.estimatedStart)}</div>
               <md-icon slot="start">person</md-icon>
             </md-list-item>
           ))}
         </md-list>
+        <mky-ambulance-wl-list onentry-clicked={(ev: CustomEvent<string>) => navigate('./entry/' + ev.detail)}></mky-ambulance-wl-list>
       </Host>
     );
   }
